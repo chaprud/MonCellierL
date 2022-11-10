@@ -1,0 +1,20 @@
+body {
+    background-color:rgb(222, 244, 253);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+    height: 50px;
+    background-color: darkblue;
+    border: 0;
+    border-radius: 56px;
+    color:rgb(222, 244, 253); 
+    cursor: pointer;
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+header {
+    align-self: center;
+}
