@@ -15,7 +15,7 @@
         case '/MonCellier/Bienvenue':
             include '../MonCellier/bienvenue.php'; 
             break; 
-        case '/MonCellier/creationUtilisateur':
+        case '/MonCellier/createUser':
             include '../MonCellier/controller/ctrl_create_user.php';
             break;
         case '/MonCellier/connexion';

@@ -3,9 +3,18 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+#accueil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px; 
+}
+
 button {
     height: 50px;
-    background-color: darkblue;
+    width: 200px; 
+    background-image: linear-gradient(rgb(155, 202, 244), darkblue);
     border: 0;
     border-radius: 56px;
     color:rgb(222, 244, 253); 
@@ -13,8 +22,11 @@ button {
     font-size: larger;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
+    margin: 20px;
 }
 
-header {
-    align-self: center;
+img {
+    margin: 20px; 
 }
+
+

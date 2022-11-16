@@ -27,7 +27,7 @@ h3 {
 
 button {
     height: 50px;
-    background-color: darkblue;
+    background-image: linear-gradient(rgb(155, 202, 244), darkblue);
     border: 0;
     border-radius: 56px;
     color:rgb(222, 244, 253); 
@@ -37,5 +37,31 @@ button {
     text-align: center;
 }
 
+.label {
+    align-self: center;
+    text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+    button {
+        width:200px; 
+    }
+    #grille {
+        display: grid;
+        grid-template-columns: [first] 25% [line2] 50%;
+        grid-template-rows: repeat(9, 1fr);
+    }
+    
+    #error_nom, #error_prenom, #error_mail, #error_mdp {
+        grid-column-start: 1;
+        grid-column-end: end;
+    }
+
+    button {
+        grid-column-start: 2;
+        grid-column-end: end; 
+        place-self: center stretch;
+    }
+}
 
 
