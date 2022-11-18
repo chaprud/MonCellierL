@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
 }
 //test si le bouton n'est pas cliqué
 else {
-    $message = "Pour ajouter un utilisateur veuillez cliquer sur ajouter";
+    $message = "";
 }
 
 // Import du corps de la page 
