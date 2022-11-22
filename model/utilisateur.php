@@ -16,31 +16,12 @@
             die ("erreur: " .$e->getMessage()); 
         }
     }
+    
+    // fonction qui affiche la liste des utilisateurs 
 
-    // fonction qui affiche la liste des utilisateurs
-
-    function listUtil($bdd):?array {
+    function listeUtils($bdd):?array {
         try {
-            $req = $bdd->prepare("SELECT id_utilisateur, pseudo_utilisateur FROM utilisateur ORDER BY pseudo_utilisateur ASC "); 
-            $req->execute(); 
-            // stocker le résultat dans une variable
-            $liste=$req->fetchAll(PDO::FETCH_ASSOC);
-            // retourner la liste
-            return $liste; 
-        }
-        catch (Exception $e)
-        {
-            //affichage d'une erreur 
-            die ("erreur: " .$e->getMessage()); 
-        }
-    }
-
-    // fonction qui recherche un utilisateur par son pseudo
-
-    function searchUtil($bdd, $pseudo):?array {
-        try {
-            $req = $bdd->prepare("SELECT id_utilisateur, pseudo_utilisateur FROM utilisateur WHERE pseudo_utilisateur=?");
-            $req->bindParam(1, $pseudo, PDO::PARAM_STR); 
+            $req = $bdd->prepare("SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur FROM utilisateur");
             $req->execute();
             //synthetiser le résultat dans un tableau
             $utilisateur = $req->fetchAll(PDO::FETCH_ASSOC); 
@@ -55,23 +36,26 @@
         }
     }
 
-    // fonction qui recherche un utilisateur par mail 
+    // fonction qui recherche un utilisateur par mail
 
-    function searchMailUtil($bdd, $mail):?array {
+    function searchMail ($bdd, $mail):?array{
         try {
-            $req = $bdd->prepare("SELECT id_utilisateur, mail_utilisateur FROM utilisateur WHERE mail_utilisateur=?");
-            $req->bindParam(1, $mail, PDO::PARAM_STR); 
+            //stocker et évaluer la requête
+            $req = $bdd->prepare("SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur,
+            mail_utilisateur FROM utilisateur WHERE mail_utilisateur = ?");
+            //binder la valeur $mail au ?
+            $req->bindParam(1, $mail, PDO::PARAM_STR);
+            //exécuter la requête
             $req->execute();
-            //synthetiser le résultat dans un tableau
-            $utilisateur = $req->fetchAll(PDO::FETCH_ASSOC); 
-            // retourner le résultat
-            return $utilisateur; 
-
-        }
-        catch (Exception $e)
+            //stocker dans $data le résultat de la requête (tableau associatif)
+            $data = $req->fetchAll(PDO::FETCH_ASSOC);
+            //retourner le tableau associatif
+            return $data;
+        } 
+        catch (Exception $e) 
         {
-            //affichage d'une erreur 
-            die ("erreur: " .$e->getMessage()); 
+            //affichage d'une exception en cas d’erreur
+            die('Erreur : '.$e->getMessage());
         }
     }
 ?>

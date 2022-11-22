@@ -1,5 +1,5 @@
 <?php
-//import des ressources
+
 // Import connexion BDD
 include './utils/bddConnect.php';
 // Import des fonctions de l'utilisateur
@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
         $prenom = $_POST['prenom_utilisateur'];
         $mail = $_POST['mail_utilisateur'];
         //récupération du compte si il existe
-        $exist = searchMailUtil($bdd, $mail);
+        $exist = searchMail($bdd, $mail);
         //test si le compte existe
         if (empty($exist)) {
             //version bcrypt
