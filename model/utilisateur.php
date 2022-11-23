@@ -58,4 +58,26 @@
             die('Erreur : '.$e->getMessage());
         }
     }
+
+    // fonction qui modifie un utilisateur
+
+    function updateUser ($bdd, $nom, $prenom, $pseudo, $mail, $mdp, $role):void {
+        try {
+            //stocker et évaluer la requête de modification de l'utilisateur
+            $req = $bdd->prepare("UPDATE utilisateur SET nom_utilisateur = ?, prenom_utilisateur=?, pseudo_utilisateur=?, mail_utilisateur=?, mdp_utilisateur=?, id_type_utilisateur=? WHERE id_utilisateur=?");
+            //binder les valeurs aux ? 
+            $req->bindParam(1, $nom, PDO::PARAM_STR);
+            $req->bindParam(2, $prenom, PDO::PARAM_STR);
+            $req->bindParam(3, $pseudo, PDO::PARAM_STR);
+            $req->bindParam(4, $mail, PDO::PARAM_STR); 
+            $req->bindParam(5, $mdp, PDO::PARAM_STR); 
+            $req->bindParam(6, $role, PDO::PARAM_STR); 
+            $req->execute();
+        }
+        catch (Exception $e)
+        {
+            //affichage d'une exception en cas d'erreur
+            die("Erreur:" .$e->getMessage()); 
+        }
+    }
 ?>

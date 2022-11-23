@@ -26,11 +26,12 @@
                 if(password_verify($mdp, $hash)) {
                     //stockage des informations dans la session
                     $_SESSION["connected"] = true;
+                    $_SESSION["id"] = $utilisateur[0]["id_utilisateur"];
                     $_SESSION["mail"] = $utilisateur[0]["mail_utilisateur"]; 
                     $_SESSION["nom"] = $utilisateur[0]["nom_utilisateur"];
                     $_SESSION["prenom"] = $utilisateur[0]["prenom_utilisateur"];
                     $_SESSION["pseudo"] = $utilisateur[0]["pseudo_utilisateur"];
-                    $_SESSION["id"] = $utilisateur[0]["id_utilisateur"];
+                    $_SESSION["role"] = $utilisateur[0]["id_type_utilisateur"]; 
                     $redirConnex=true; 
                 }
                 else {

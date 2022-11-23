@@ -57,11 +57,6 @@ input {
         grid-template-columns: [first] 25% [line2] 50%;
         grid-template-rows: repeat(9, 1fr);
     }
-    
-    #error_nom, #error_prenom, #error_mail, #error_mdp {
-        grid-column-start: 1;
-        grid-column-end: end;
-    }
 
     button {
         grid-column-start: 1;
@@ -72,13 +67,14 @@ input {
 
     .label {
         text-align: end;
+        margin-right: 1em;
     }
 
     input {
         height: 25px;
         width: 100%;
         place-self: center;
-        margin-left: 7em;
+        justify-self: stretch;
     }
 
     .message {

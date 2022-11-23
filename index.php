@@ -12,14 +12,21 @@
         case '/MonCellier/':
             include './accueil.php';
             break;
-        case '/MonCellier/Bienvenue':
-            include '../MonCellier/bienvenue.php'; 
-            break; 
         case '/MonCellier/createUser':
             include '../MonCellier/controller/ctrl_create_user.php';
             break;
         case '/MonCellier/connexion';
             include '../MonCellier/controller/ctrl_connexion.php'; 
+            break; 
+        case '/MonCellier/compte';
+            include '../MonCellier/controller/ctrl_compte.php';
+            break; 
+        case '/MonCellier/modifCompte'; 
+            include '../MonCellier/controller/ctrl_modif_compte.php'; 
+            break; 
+        case '/MonCellier/createFoyer';
+            include '../MonCellier/controller/ctrl_create_foyer.php';
+            break; 
         default:
             include './error.php';
             break;
