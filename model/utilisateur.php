@@ -42,7 +42,7 @@
         try {
             //stocker et évaluer la requête
             $req = $bdd->prepare("SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur,
-            mail_utilisateur FROM utilisateur WHERE mail_utilisateur = ?");
+            mail_utilisateur, mdp_utilisateur, pseudo_utilisateur FROM utilisateur WHERE mail_utilisateur = ?");
             //binder la valeur $mail au ?
             $req->bindParam(1, $mail, PDO::PARAM_STR);
             //exécuter la requête
