@@ -42,7 +42,7 @@
         try {
             //stocker et évaluer la requête
             $req = $bdd->prepare("SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur,
-            mail_utilisateur, mdp_utilisateur, pseudo_utilisateur FROM utilisateur WHERE mail_utilisateur = ?");
+            mail_utilisateur, mdp_utilisateur FROM utilisateur WHERE mail_utilisateur = ?");
             //binder la valeur $mail au ?
             $req->bindParam(1, $mail, PDO::PARAM_STR);
             //exécuter la requête
@@ -59,25 +59,20 @@
         }
     }
 
-    // fonction qui modifie un utilisateur
+    //fonction qui modifie le mot de passe
 
-    function updateUser ($bdd, $nom, $prenom, $pseudo, $mail, $mdp, $role):void {
+    function updatePassword ($bdd, $mdp):void {
         try {
-            //stocker et évaluer la requête de modification de l'utilisateur
-            $req = $bdd->prepare("UPDATE utilisateur SET nom_utilisateur = ?, prenom_utilisateur=?, pseudo_utilisateur=?, mail_utilisateur=?, mdp_utilisateur=?, id_type_utilisateur=? WHERE id_utilisateur=?");
-            //binder les valeurs aux ? 
-            $req->bindParam(1, $nom, PDO::PARAM_STR);
-            $req->bindParam(2, $prenom, PDO::PARAM_STR);
-            $req->bindParam(3, $pseudo, PDO::PARAM_STR);
-            $req->bindParam(4, $mail, PDO::PARAM_STR); 
-            $req->bindParam(5, $mdp, PDO::PARAM_STR); 
-            $req->bindParam(6, $role, PDO::PARAM_STR); 
+            //stocker la requête
+            $req=$bdd->prepare("UPDATE utilisateur SET mdp_utilisateur=?");
+            //Binder les valeurs aux ?
+            $req->bindParam(1, $mdp, PDO::PARAM_STR);
             $req->execute();
         }
         catch (Exception $e)
         {
             //affichage d'une exception en cas d'erreur
             die("Erreur:" .$e->getMessage()); 
-        }
+        } 
     }
 ?>

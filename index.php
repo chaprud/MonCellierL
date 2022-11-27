@@ -27,6 +27,12 @@
         case '/MonCellier/createFoyer';
             include '../MonCellier/controller/ctrl_create_foyer.php';
             break; 
+        case '/MonCellier/bienvenue';
+            include '../MonCellier/controller/ctrl_bienvenue.php';
+            break;
+        case '/MonCellier/newMdp';
+            include '../MonCellier/controller/ctrl_new_mdp.php';
+            break;
         default:
             include './error.php';
             break;

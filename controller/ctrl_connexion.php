@@ -2,7 +2,9 @@
     // Import connexion BDD
     include './utils/bddConnect.php';
     // Import des fonctions de l'utilisateur
-    include './model/utilisateur.php';
+    include './model/utilisateur.php'; 
+    // Import header
+    include './view/view_header.php'; 
 
     $redirConnex = false; 
     $redirCreate = false; 
@@ -30,8 +32,6 @@
                     $_SESSION["mail"] = $utilisateur[0]["mail_utilisateur"]; 
                     $_SESSION["nom"] = $utilisateur[0]["nom_utilisateur"];
                     $_SESSION["prenom"] = $utilisateur[0]["prenom_utilisateur"];
-                    $_SESSION["pseudo"] = $utilisateur[0]["pseudo_utilisateur"];
-                    $_SESSION["role"] = $utilisateur[0]["id_type_utilisateur"]; 
                     $redirConnex=true; 
                 }
                 else {

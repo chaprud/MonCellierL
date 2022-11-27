@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         $exist = searchMail($bdd, $mail);
         //test si le compte existe
         if (empty($exist)) {
-            //version bcrypt
+            //mot de passe crypté
             $mdp = password_hash($_POST['mdp_utilisateur'], PASSWORD_DEFAULT);
             //fonction ajouter un utilisateur en BDD
             createUtil($bdd, $nom, $prenom, $mail, $mdp);

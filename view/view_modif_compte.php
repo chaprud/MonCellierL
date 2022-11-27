@@ -12,8 +12,6 @@
     <input type="text" name="nom_utilisateur" id="nom">
     <div id="prenom"> PRENOM </div>
     <input type="text" name="prenom_utilisateur" id="prenom">
-    <div id="pseudo"> PSEUDO </div>
-    <input type="text" name="pseudo_utilisateur" id="pseudo">
     <div id="mail"> MAIL </div>
     <input type="email" name="mail_utilisateur" id="mail">
     <div id="role"> ROLE </div>

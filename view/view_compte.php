@@ -12,8 +12,6 @@
     <div></div>
     <div id="prenom"> PRENOM </div>
     <div></div>
-    <div id="pseudo"> PSEUDO </div>
-    <div></div>
     <div id="mail"> MAIL </div>
     <div></div>
     <div id="role"> ROLE </div>

@@ -1,0 +1,23 @@
+body {
+    background-color:rgb(222, 244, 253);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#img1 {
+    height: 50px;
+    width: 50px;
+}
+
