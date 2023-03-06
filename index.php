@@ -1,6 +1,11 @@
 <?php
     // Import connexion BDD
     include './utils/bddConnect.php';
+    // Import des fonctions
+    include './utils/functions.php'; 
+
+    //utilisation de session_start(pour gérer la connexion au serveur)
+    session_start();
 
     //Analyse de l'URL avec parse_url() et retourne ses composants
     $url = parse_url($_SERVER['REQUEST_URI']);

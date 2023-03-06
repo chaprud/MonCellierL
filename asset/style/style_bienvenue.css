@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Caveat";
+    src: url("../Caveat/static/Caveat-Regular.ttf") format("truetype");
+}
+
 body {
     background-color:rgb(222, 244, 253);
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -9,15 +14,82 @@ header {
     justify-content: center;
 }
 
-#container {
+.container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px auto 30px auto; 
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+    margin-right: 0px;
+}
+
+button {
+    height: 40px;
+    width: 40px;
+    background-image: linear-gradient(rgb(155, 202, 244), darkblue);
+    border: 2px solid rgb(222, 244, 253);
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+input {
+    align-self: center;
+    border: 2px solid rgb(222, 244, 253);
+    box-shadow: rgba(7, 84, 161, 0.2) 0px 8px 30px;
+    height: 40px;
+}
+
+.message {
+    height: 5vh;
+    width: auto;
+    background-color: aliceblue;
+    text-align: center;
+    line-height: 5vh;
+    box-shadow: rgba(7, 84, 161, 0.2) 0px 8px 30px;
+    font-family: "caveat";
+    font-size: 4vh;
+    color: darkblue;
+    margin-bottom: 20px;
+}
+
+.accueil {
+    height: 20vh;
+    width: auto; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 
-#img1 {
-    height: 50px;
-    width: 50px;
+.fonctionalite {
+    height: 20vh;
+    width: 40%;
+    font-family: "caveat";
+    font-size: 4vh;
+    border-radius: 20px;
+    color:darkblue; 
+}
+#stock {
+    background-image: linear-gradient(rgb(228, 255, 227), rgb(64, 218, 110));
 }
 
+#liste {
+    background-image: linear-gradient(rgb(245, 248, 232), rgb(231, 255, 143));
+}
+
+@media screen and (min-width: 800px) {
+
+    .fonctionalite {
+        height: 20vh;
+        width: 20%;
+    }
+
+    .accueil {
+        justify-content: space-evenly;
+    }
+}

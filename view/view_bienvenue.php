@@ -10,26 +10,35 @@
 </head>
 
 <body>
-    <div id="container">
-        <div id="compte">
-            <button id="bouton1" onclick="window.location.href='./MonCellier/compte';"> 
+    <div class="container">
+        <div class="button">
+            <button onclick="window.location.href='./compte';">
                 <img src="./asset/images/user.png" alt="icone utilisateur" id="img1">
-                <p>Mon Compte</p> 
-            </button>
-            <input type="search" name="recherche" id="recherche">
-            <button type="submit"> 
-                <img src="./asset/images/recherche.png" alt="icone recherche" id="img2">
             </button>
         </div>
-        <div id="produit">
-            <img src="./asset/images/Produits.png" alt="icone produits">
-            <p> Mon Stock </p>
-        </div>
-        <div id="liste">
-            <img src="./asset/images/liste.png" alt="icone listes">
-            <p> Mes Listes </p>
+        <div class="search">
+            <div id="recherche">
+                <input type="search" name="recherche" placeholder="rechercher un produit">
+            </div>
+            <div class="button" id="bouton2">
+                <button type="submit">
+                    <img src="./asset/images/recherche.png" alt="icone recherche" id="img2">
+                </button>
+            </div>
         </div>
     </div>
+    <div class="message">
+        Bienvenue <?php echo $_SESSION["prenom"] ?> !
+    </div>
+    <div class="accueil">
+            <button  class="fonctionalite" id="stock" onclick="window.location.href='/MonCellier/stock'">
+                Mon Stock
+            </button>
+            <button  class="fonctionalite" id="liste" onclick="window.location.href='/MonCellier/liste'">
+                Mes Listes
+            </button>
+    </div>
+
 </body>
 
 </html>

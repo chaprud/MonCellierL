@@ -1,7 +1,5 @@
 <?php
 
-// Import connexion BDD
-include './utils/bddConnect.php';
 // Import des fonctions de l'utilisateur
 include './model/utilisateur.php';
 
@@ -15,9 +13,9 @@ if (isset($_POST['submit'])) {
         !empty($_POST['mail_utilisateur']) and !empty($_POST['mdp_utilisateur'])
     ) {
         //stocker les valeurs POST dans des variables
-        $nom = $_POST['nom_utilisateur'];
-        $prenom = $_POST['prenom_utilisateur'];
-        $mail = $_POST['mail_utilisateur'];
+        $nom = cleanInput($_POST['nom_utilisateur']);
+        $prenom = cleanInput($_POST['prenom_utilisateur']);
+        $mail = cleanInput($_POST['mail_utilisateur']);
         //récupération du compte si il existe
         $exist = searchMail($bdd, $mail);
         //test si le compte existe
@@ -33,6 +31,7 @@ if (isset($_POST['submit'])) {
         //test sinon le compte existe
         else {
             $message = "le compte existe déja";
+            $redirection = true;
         }
     }
     //test si un ou plusieurs champs ne sont pas remplis

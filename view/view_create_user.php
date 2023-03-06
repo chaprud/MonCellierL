@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +9,6 @@
     <link rel="stylesheet" href="./asset/style/style_create_user.css">
     <script src="./asset/script/script_create_user.js" defer></script>
 </head>
-
 <body>
     <div>
         <h3>Créer un compte</h3>
@@ -34,8 +32,6 @@
                 <div class='message'><?php echo $message ?></div>
             </form>
         </div>
-    </div>
-    
+    </div> 
 </body>
-
 </html>
