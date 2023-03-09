@@ -16,12 +16,8 @@
     // Création du gestionnaire principal
         // test du bouton cliqué 
         if(isset($_POST["submit"])) {
-            //ajoute le gestionnaire en bdd s'il n'existe pas
-            $gest = searchGestMail($bdd, $mail); 
-            if (empty($gest)) {
-                createGest($bdd, $prenom, $nom, $mail);
-            }
             //recherche l'id du gestionnaire
+            $gest = searchGestMail($bdd, $mail); 
             $idGest = $gest[0]["id_gestionnaire"]; 
             // création du foyer avec l'utilisateur en gestionnaire
                 //test si le champ est rempli
@@ -31,8 +27,16 @@
                     $message = "le foyer $nomFoyer a été créé avec $prenom $nom en gestionnaire principal"; 
                 }
                 else {
-                    $message = ""; 
+                    $message = "le foyer n'a pas été créé."; 
                 }
+            //association du foyer et de l'utilisateur
+
+            //foyer[0] pose pb 
+            $foyer = searchFoyer($bdd, $idGest); 
+            $lienFoyer = $foyer[0]["id_foyer"];  
+            appartenir($bdd, $id, $lienFoyer);
+
+
         }
         else {
             $message =""; 

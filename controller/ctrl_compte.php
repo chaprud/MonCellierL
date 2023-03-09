@@ -15,13 +15,11 @@
     $type = $utilisateur[0]["nom_type_utilisateur"];
 
     $foyerUtil = foyerUtil($bdd, $mail);
-    var_dump($foyerUtil); 
-    // retourne un résultat vide, il faudra remplir la table d'association. 
-    if (isset($foyerUtil)) {
-        $foyer = $foyerUtil[0]["nom_foyer"]; 
+    if (empty($foyerUtil)) {
+        $foyer = "aucun foyer n'a été créé";
     }
     else {
-        $foyer = "Aucun foyer n'a été créé"; 
+        $foyer = $foyerUtil[0]["nom_foyer"]; 
     }
     //import de la page
     include "./view/view_compte.php"; 

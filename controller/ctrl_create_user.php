@@ -2,6 +2,7 @@
 
 // Import des fonctions de l'utilisateur
 include './model/utilisateur.php';
+include "./model/gestionnaire.php"; 
 
 $redirection = false;
 
@@ -16,6 +17,7 @@ if (isset($_POST['submit'])) {
         $nom = cleanInput($_POST['nom_utilisateur']);
         $prenom = cleanInput($_POST['prenom_utilisateur']);
         $mail = cleanInput($_POST['mail_utilisateur']);
+        $idTypeUtil = 1; 
         //récupération du compte si il existe
         $exist = searchMail($bdd, $mail);
         //test si le compte existe
@@ -23,7 +25,7 @@ if (isset($_POST['submit'])) {
             //mot de passe crypté
             $mdp = password_hash($_POST['mdp_utilisateur'], PASSWORD_DEFAULT);
             //fonction ajouter un utilisateur en BDD
-            createUtil($bdd, $nom, $prenom, $mail, $mdp);
+            createUtil($bdd, $nom, $prenom, $mail, $mdp, $idTypeUtil);
             //message de confirmation
             $message = "le compte $prenom $nom a été créé, vous allez être redirigé vers la page de connexion dans quelques secondes";
             $redirection = true;
@@ -32,7 +34,9 @@ if (isset($_POST['submit'])) {
         else {
             $message = "le compte existe déja";
             $redirection = true;
-        }
+        } 
+        // insertion dans la table gestionnaire principal
+        createGest($bdd, $nom, $prenom, $mail);          
     }
     //test si un ou plusieurs champs ne sont pas remplis
     else {
@@ -46,3 +50,5 @@ else {
 
 // Import du corps de la page 
 include './view/view_create_user.php';
+
+?>

@@ -1,13 +1,14 @@
 <?php
     // fonction qui crée un utilisateur
 
-    function createUtil($bdd, $nom, $prenom, $mail, $mdp):void {
+    function createUtil($bdd, $nom, $prenom, $mail, $mdp, $idTypeUtil):void {
         try {
-            $req = $bdd->prepare("INSERT INTO utilisateur(nom_utilisateur, prenom_utilisateur, mail_utilisateur, mdp_utilisateur) VALUES (?,?,?,?)");
+            $req = $bdd->prepare("INSERT INTO utilisateur(nom_utilisateur, prenom_utilisateur, mail_utilisateur, mdp_utilisateur, id_type_utilisateur) VALUES (?,?,?,?,?)");
             $req->bindParam(1, $nom, PDO::PARAM_STR);
             $req->bindParam(2, $prenom, PDO::PARAM_STR);
             $req->bindParam(3, $mail, PDO::PARAM_STR);
             $req->bindParam(4, $mdp, PDO::PARAM_STR);
+            $req->bindParam(5, $idTypeUtil, PDO::PARAM_STR); 
             $req->execute();
         }
         catch (Exception $e)
@@ -16,7 +17,6 @@
             die ("erreur: " .$e->getMessage()); 
         }
     }
-
     
     // fonction qui affiche la liste des utilisateurs 
 
@@ -133,6 +133,7 @@
     function updateId ($bdd, $id):void {
         try {
             $req = $bdd->prepare("UPDATE utilisateur SET id_type_utilisateur = 1 WHERE id_utilisateur=?");
+            $req->bindParam(1, $id, PDO::PARAM_STR); 
             $req->execute();  
         }
         catch (Exception $e) {
