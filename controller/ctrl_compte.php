@@ -13,16 +13,7 @@
     $nom = $utilisateur[0]["nom_utilisateur"]; 
     $mail = $utilisateur[0]["mail_utilisateur"];  
     $type = $utilisateur[0]["nom_type_utilisateur"];
-
-    $foyerUtil = foyerUtil($bdd, $mail);
-    if (empty($foyerUtil)) {
-        $foyer = "aucun foyer n'a été créé";
-    }
-    else {
-        $foyer = $foyerUtil[0]["nom_foyer"]; 
-    }
+    $id = $utilisateur[0]["id_utilisateur"]; 
+    
     //import de la page
-    include "./view/view_compte.php"; 
-
-
-?>
+    include "./view/view_compte.php";

@@ -29,14 +29,14 @@
         }
     }
 
-// fonction qui recherche un foyer par id
-    function searchFoyer($bdd, $idFoyer): ?array
+// fonction qui recherche un foyer par nom
+    function searchFoyer($bdd, $nomFoyer): ?array
         {
             try {
                 //stocker et évaluer la requête
-                $req = $bdd->prepare("SELECT id_foyer FROM foyer WHERE id_gestionnaire = ?");
+                $req = $bdd->prepare("SELECT id_foyer, nom_foyer, id_gestionnaire FROM foyer WHERE nom_foyer = ?");
                 //binder la valeur $id au ?
-                $req->bindParam(1, $idFoyer, PDO::PARAM_STR);
+                $req->bindParam(1, $nomFoyer, PDO::PARAM_STR);
                 //exécuter la requête
                 $req->execute();
                 //stocker dans $data le résultat de la requête (tableau associatif)

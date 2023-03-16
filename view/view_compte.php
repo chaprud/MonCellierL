@@ -18,7 +18,17 @@
     <div id="type" class="info1"> Type utilisateur </div>
     <div class="info2"><?php echo $type ?></div>
     <div id="foyer" class="info1"> Foyer(s) </div>
-    <div class="info2"><?php echo $foyer ?></div>
+    <div class="info2"><?php 
+        $foyerUtil = foyerUtil($bdd, $id);
+        if (empty($foyerUtil)) {
+            $foyer = "aucun foyer n'a été créé";
+            }
+        else {
+            foreach($foyerUtil as $value) {
+            echo "<p> {$value["nom_foyer"]} </p>"; 
+            }   
+        } 
+        ?></div>
     <div class="bouton">
         <div class="button">
             <button  onclick="window.location.href='./modifCompte';"> Modifier mes informations </button>
